@@ -39,7 +39,7 @@
             <HBox spacing="45.0">
                <children>
                   <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="73.0" text="Client" />
-                  <ComboBox prefWidth="150.0" />
+                  <ComboBox fx:id="listOfClients" prefWidth="150.0" />
                </children>
                <padding>
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />

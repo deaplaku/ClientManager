@@ -20,7 +20,7 @@
          <children>
             <ImageView fitHeight="44.0" fitWidth="235.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="https://i.imgur.com/0VrxR8l.png" ></Image>
+                  <Image url="https://i.imgur.com/0VrxR8l.png" />
                </image>
             </ImageView>
             <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="7.0" prefHeight="39.0" prefWidth="277.0" text="Dashboard" textAlignment="CENTER" HBox.hgrow="ALWAYS">
@@ -29,7 +29,10 @@
                </HBox.margin>
                <padding>
                   <Insets left="10.0" />
-               </padding></Label>
+               </padding>
+               <font>
+                  <Font name="Arial" size="27.0" />
+               </font></Label>
             <SplitMenuButton mnemonicParsing="false" prefHeight="40.0" prefWidth="146.0" text="New">
               <items>
                 <MenuItem mnemonicParsing="false" text="Create Task" />
@@ -38,10 +41,10 @@
             </SplitMenuButton>
             <Button mnemonicParsing="false" onAction="#openSettings" prefHeight="39.0" prefWidth="66.0" text="Settings" HBox.hgrow="ALWAYS">
                <HBox.margin>
-                  <Insets left="10.0" />
+                  <Insets left="20.0" />
                </HBox.margin>
                <padding>
-                  <Insets right="10.0" />
+                  <Insets left="10.0" right="10.0" />
                </padding>
             </Button>
          </children>

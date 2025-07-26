@@ -15,4 +15,8 @@ module com.example.clientmanager {
 
     opens com.example.clientmanager to javafx.fxml;
     exports com.example.clientmanager;
+    exports control;
+    exports model;
+
+    opens control to javafx.fxml;
 }

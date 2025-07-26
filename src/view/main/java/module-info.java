@@ -10,6 +10,8 @@ module com.example.clientmanager {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires java.sql;
+    requires com.fasterxml.jackson.annotation;
 
     opens com.example.clientmanager to javafx.fxml;
     exports com.example.clientmanager;

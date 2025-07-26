@@ -1,19 +1,19 @@
 package model;
 
-import java.util.Date;
-
+import java.time.LocalDate;
 import static model.TaskStatus.*;
 import static model.PayStatus.*;
 
 public class Task {
+    private int id;
     private Client client;
     private String description;
-    private Date date;
+    private LocalDate date;
     private double price;
     private TaskStatus status;
     private PayStatus payStatus;
 
-    public Task(Client client, String description, Date date, double price){
+    public Task(Client client, String description, LocalDate date, double price){
         this.client = client;
         this.description = description;
         this.date = date;
@@ -51,11 +51,11 @@ public class Task {
         this.description = description;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
@@ -86,6 +86,18 @@ public class Task {
     public TaskStatus getStatus() {
         return status;
     }
+
+    public PayStatus getPayStatus() {
+        return payStatus;
+    }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
 }
 
 

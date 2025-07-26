@@ -1,30 +1,32 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Client {
+    private int id;
     private String name;
     private String surname;
     private boolean isCompany;
+
     private List<Task> futureTasks;
     private List<Task> completedTasks;
-    private int nrOfTasks = 0;
 
     public Client(String name, String surname, boolean isCompany){
         this.name = name;
         this.surname = surname;
         this.isCompany = isCompany;
+        futureTasks = new ArrayList<>();
+        completedTasks = new ArrayList<>();
     }
 
     public void addTask(Task task){
         futureTasks.add(task);
-        nrOfTasks++;
     }
 
-    public void deleteTask(Task task){
+    public void markTaskAsCompleted(Task task){
         futureTasks.remove(task);
         completedTasks.add(task);
-        nrOfTasks--;
     }
 
     public String getName() {
@@ -51,14 +53,6 @@ public class Client {
         isCompany = company;
     }
 
-    public int getNrOfTasks() {
-        return nrOfTasks;
-    }
-
-    public void setNrOfTasks(int nrOfTasks) {
-        this.nrOfTasks = nrOfTasks;
-    }
-
     public List<Task> getFutureTasks() {
         return futureTasks;
     }
@@ -75,4 +69,16 @@ public class Client {
         this.completedTasks = completedTasks;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return name + " " + surname + (isCompany ? "(Company)" : "");
+    }
 }

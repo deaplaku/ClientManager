@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <padding>
+      <Insets left="10.0" />
+   </padding>
+   <center>
+      <HBox alignment="TOP_CENTER" BorderPane.alignment="CENTER">
+         <children>
+            <PieChart fx:id="pieChart" maxHeight="438.0" nodeOrientation="LEFT_TO_RIGHT" title="Task-Client Distribution" />
+         </children>
+         <cursor>
+            <Cursor fx:constant="W_RESIZE" />
+         </cursor>
+      </HBox>
+   </center>
+</BorderPane>

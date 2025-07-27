@@ -7,15 +7,23 @@ public class Client {
     private int id;
     private String name;
     private String surname;
-    private boolean isCompany;
+    private String company;
 
     private List<Task> futureTasks;
     private List<Task> completedTasks;
 
-    public Client(String name, String surname, boolean isCompany){
+    public Client(String name, String surname, String company){
         this.name = name;
         this.surname = surname;
-        this.isCompany = isCompany;
+        this.company = company;
+        futureTasks = new ArrayList<>();
+        completedTasks = new ArrayList<>();
+    }
+
+    public Client(String name, String surname){
+        this.name = name;
+        this.surname = surname;
+        this.company = null;
         futureTasks = new ArrayList<>();
         completedTasks = new ArrayList<>();
     }
@@ -45,12 +53,12 @@ public class Client {
         this.surname = surname;
     }
 
-    public boolean isCompany() {
-        return isCompany;
+    public String getCompany() {
+        return company;
     }
 
-    public void setCompany(boolean company) {
-        isCompany = company;
+    public void setCompany(String company) {
+        this.company = company;
     }
 
     public List<Task> getFutureTasks() {
@@ -79,6 +87,6 @@ public class Client {
 
     @Override
     public String toString() {
-        return name + " " + surname + (isCompany ? "(Company)" : "");
+        return name + " " + surname;
     }
 }

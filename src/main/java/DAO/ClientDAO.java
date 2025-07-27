@@ -9,11 +9,11 @@ import java.util.List;
 
 public class ClientDAO implements IClientDAO {
     public void addClient(Client client) throws SQLException {
-        String sql = "INSERT INTO clients (name, surname, is_company) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO clients (name, surname, company) VALUES (?, ?, ?)";
         try (Connection connection = DBConnection.getConnection(); PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setString(1, client.getName());
             stmt.setString(2, client.getSurname());
-            stmt.setBoolean(3, client.isCompany());
+            stmt.setString(3, client.getCompany());
             stmt.executeUpdate();
         }
     }
@@ -27,7 +27,7 @@ public class ClientDAO implements IClientDAO {
                 Client client = new Client(
                         resultSet.getString("name"),
                         resultSet.getString("surname"),
-                        resultSet.getInt("is_company") == 1
+                        resultSet.getString("company")
                 );
                 client.setId(resultSet.getInt("id"));
                 clients.add(client);
@@ -45,9 +45,9 @@ public class ClientDAO implements IClientDAO {
             if(resultSet.next()){
                 String name = resultSet.getString("name");
                 String surname = resultSet.getString("surname");
-                boolean isCompany = resultSet.getInt("is_company") == 1;
+                String company = resultSet.getString("company");
 
-                Client client = new Client(name, surname, isCompany);
+                Client client = new Client(name, surname, company);
                 client.setId(id);
                 return client;
             }
@@ -57,12 +57,12 @@ public class ClientDAO implements IClientDAO {
 
     @Override
     public void updateClient(Client client) throws SQLException {
-        String sql = "UPDATE clients SET name = ?, surname = ?, is_company = ? WHERE id = ?";
+        String sql = "UPDATE clients SET name = ?, surname = ?, company = ? WHERE id = ?";
 
         try (Connection connection = DBConnection.getConnection(); PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setString(1, client.getName());
             stmt.setString(2, client.getSurname());
-            stmt.setInt(3, client.isCompany() ? 1 : 0);
+            stmt.setString(3, client.getCompany());
             stmt.setInt(4, client.getId());
 
             stmt.executeUpdate();
@@ -93,9 +93,9 @@ public class ClientDAO implements IClientDAO {
                 int id = resultSet.getInt("id");
                 String name = resultSet.getString("name");
                 String surname = resultSet.getString("surname");
-                boolean isCompany = resultSet.getInt("is_company") == 1;
+                String company = resultSet.getString("company");
 
-                Client client = new Client(name, surname, isCompany);
+                Client client = new Client(name, surname, company);
                 client.setId(id);
                 result.add(client);
             }

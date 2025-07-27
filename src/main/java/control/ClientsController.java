@@ -1,39 +1,24 @@
 package control;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TextField;
 import javafx.scene.input.InputMethodEvent;
 
 public class ClientsController {
 
     @FXML
-    void goToClients(ActionEvent event) {
-    }
-
+    private TableColumn<?, ?> clientId;
     @FXML
-    void goToDashboard(ActionEvent event) {
-
-    }
-
+    private TableColumn<?, ?> clientName;
     @FXML
-    void goToTasks(ActionEvent event) {
-
-    }
-
+    private TableColumn<?, ?> clientNoTasks;
     @FXML
-    void openSettings(ActionEvent event) {
-
-    }
-
+    private TableColumn<?, ?> clientStatus;
     @FXML
-    void createNewClient(ActionEvent event) {
-
-    }
-
+    private TableColumn<?, ?> clientSurname;
     @FXML
-    void createNewTask(ActionEvent event) {
-
-    }
+    private TextField searchBar;
 
     @FXML
     void searchClient(InputMethodEvent event) {

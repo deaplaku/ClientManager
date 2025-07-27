@@ -12,7 +12,7 @@ public class DatabaseInitializer {
                         id INTEGER PRIMARY KEY AUTOINCREMENT,
                         name TEXT NOT NULL,
                         surname TEXT NOT NULL,
-                        is_company INTEGER NOT NULL
+                        company TEXT
                     )
 """);
             stmt.execute("""
@@ -28,6 +28,7 @@ public class DatabaseInitializer {
                 )
 """);
         }catch(Exception e) {
+            System.out.println("Error creating tables in database!!");
             e.printStackTrace();
         }
     }

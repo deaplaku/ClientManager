@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="1.7976931348623157E308" prefHeight="233.0" prefWidth="499.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.SettingsController">
+   <padding>
+      <Insets left="10.0" />
+   </padding>
+   <top>
+      <Label text="Settings" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets top="10.0" />
+         </BorderPane.margin>
+      </Label>
+   </top>
+   <center>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="TOP_RIGHT" prefHeight="141.0" prefWidth="175.0" spacing="20.0">
+               <children>
+                  <Label text="Change color theme" />
+                  <Label text="Ask for deletion confirmation" />
+                  <Label text="Export " />
+               </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <padding>
+                  <Insets top="20.0" />
+               </padding>
+            </VBox>
+            <VBox prefHeight="141.0" prefWidth="291.0" spacing="15.0">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <padding>
+                  <Insets left="20.0" top="18.0" />
+               </padding>
+               <children>
+                  <ComboBox fx:id="themeComboBox" onAction="#changeColorTheme" prefWidth="150.0" promptText="Light" />
+                  <ComboBox fx:id="deletionComboBox" onAction="#changeDeletionConfirmation" prefWidth="150.0" promptText="No" />
+                  <Button fx:id="exportButton" mnemonicParsing="false" onAction="#exportToPdf" text="Export to PDF" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </center>
+   <bottom>
+      <HBox alignment="BOTTOM_RIGHT" prefHeight="47.0" prefWidth="543.0" spacing="20.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="confirmButton" mnemonicParsing="false" onAction="#saveChanges" text="Confirm" />
+            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#exitWithoutSaving" text="Cancel" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" right="10.0" />
+         </padding>
+      </HBox>
+   </bottom>
+</BorderPane>

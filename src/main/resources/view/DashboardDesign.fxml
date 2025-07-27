@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuItem?>
@@ -14,11 +12,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.DashboardController">
+<BorderPane fx:id="mainPane" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.DashboardController">
    <top>
       <HBox alignment="CENTER" depthTest="ENABLE" focusTraversable="true" nodeOrientation="LEFT_TO_RIGHT" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="44.0" fitWidth="235.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="logo" fitHeight="44.0" fitWidth="235.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="https://i.imgur.com/0VrxR8l.png" />
                </image>
@@ -33,13 +31,13 @@
                <font>
                   <Font name="Arial" size="27.0" />
                </font></Label>
-            <SplitMenuButton mnemonicParsing="false" prefHeight="40.0" prefWidth="146.0" text="New">
+            <SplitMenuButton fx:id="newButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="146.0" text="New">
               <items>
-                <MenuItem mnemonicParsing="false" text="Create Task" />
-                <MenuItem mnemonicParsing="false" text="Create Client" />
+                <MenuItem fx:id="newTaskButton" mnemonicParsing="false" onAction="#createNewTask" text="Create Task" />
+                <MenuItem fx:id="newClientButton" mnemonicParsing="false" onAction="#createNewClient" text="Create Client" />
               </items>
             </SplitMenuButton>
-            <Button mnemonicParsing="false" onAction="#openSettings" prefHeight="39.0" prefWidth="66.0" text="Settings" HBox.hgrow="ALWAYS">
+            <Button fx:id="settingsButton" mnemonicParsing="false" onAction="#openSettings" prefHeight="39.0" prefWidth="66.0" text="Settings" HBox.hgrow="ALWAYS">
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
@@ -62,9 +60,9 @@
    <left>
       <VBox alignment="TOP_CENTER" focusTraversable="true" prefHeight="390.0" prefWidth="148.0" spacing="10.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#goToDashboard" prefHeight="63.0" prefWidth="100.0" text="Dashboard" />
-            <Button mnemonicParsing="false" onAction="#goToTasks" prefHeight="63.0" prefWidth="100.0" text="Tasks" />
-            <Button mnemonicParsing="false" onAction="#goToClients" prefHeight="63.0" prefWidth="100.0" text="Clients" />
+            <Button fx:id="dashboardButton" mnemonicParsing="false" onAction="#goToDashboard" prefHeight="63.0" prefWidth="100.0" text="Dashboard" />
+            <Button fx:id="tasksButton" mnemonicParsing="false" onAction="#goToTasks" prefHeight="63.0" prefWidth="100.0" text="Tasks" />
+            <Button fx:id="clientsButton" mnemonicParsing="false" onAction="#goToClients" prefHeight="63.0" prefWidth="100.0" text="Clients" />
          </children>
          <BorderPane.margin>
             <Insets right="10.0" top="10.0" />
@@ -75,14 +73,7 @@
       <Insets left="10.0" />
    </padding>
    <center>
-      <HBox alignment="TOP_CENTER" BorderPane.alignment="CENTER">
-         <children>
-            <PieChart maxHeight="438.0" nodeOrientation="LEFT_TO_RIGHT" title="Task-Client Distribution" />
-         </children>
-         <cursor>
-            <Cursor fx:constant="W_RESIZE" />
-         </cursor>
-      </HBox>
+      
    </center>
    <right>
       <VBox alignment="TOP_CENTER" spacing="22.0" BorderPane.alignment="CENTER">
@@ -92,7 +83,7 @@
          <children>
             <VBox alignment="CENTER" prefHeight="71.0" prefWidth="100.0" style="-fx-background-color: lightgray;">
                <children>
-                  <Label text="26">
+                  <Label fx:id="todoNr" text="26">
                      <font>
                         <Font size="36.0" />
                      </font>
@@ -105,7 +96,7 @@
             </VBox>
             <VBox alignment="CENTER" style="-fx-background-color: lightgray;">
                <children>
-                  <Label text="5">
+                  <Label fx:id="inProgressNr" text="5">
                      <font>
                         <Font size="36.0" />
                      </font>
@@ -118,7 +109,7 @@
             </VBox>
             <VBox alignment="CENTER" style="-fx-background-color: lightgray;">
                <children>
-                  <Label text="135">
+                  <Label fx:id="doneNr" text="135">
                      <font>
                         <Font size="36.0" />
                      </font>
